@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>me.MathiasMC</groupId>
-    <artifactId>PvPLevels</artifactId>
-    <version>1.0.0</version>
+    <artifactId>PvPClans</artifactId>
+    <version>1.0.1</version>
     <name>PvPClans</name>
     <description>PvPClans will add clans to your minecraft server</description>
 

@@ -36,6 +36,10 @@ public class Utils {
         Bukkit.getLogger().info(prefix() + " " + text);
     }
 
+    public static void warning(String text) {
+        Bukkit.getLogger().warning(prefix() + " " + text);
+    }
+
     public static void error(String text) {
         if (!PvPClans.getInstance().getFileUtils().config.getBoolean("debug", false)) return;
         Bukkit.getLogger().severe(prefix() + " " + text);

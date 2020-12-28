@@ -18,6 +18,7 @@ import me.MathiasMC.PvPClans.support.PlaceholderAPI;
 import me.MathiasMC.PvPClans.task.SaveTask;
 import me.MathiasMC.PvPClans.utils.FileUtils;
 import me.MathiasMC.PvPClans.utils.Metrics;
+import me.MathiasMC.PvPClans.utils.UpdateUtils;
 import me.MathiasMC.PvPClans.utils.Utils;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -115,15 +116,15 @@ public class PvPClans extends JavaPlugin {
             Metrics metrics = new Metrics(this, 9629);
             metrics.addCustomChart(new Metrics.SimplePie("clans", () -> String.valueOf(clans.size())));
 
-            /*if (fileUtils.config.getBoolean("update-check")) {
-                new UpdateUtils(this, 0).getVersion(version -> {
+            if (fileUtils.config.getBoolean("update-check")) {
+                new UpdateUtils(this, 87180).getVersion(version -> {
                     if (this.getDescription().getVersion().equalsIgnoreCase(version)) {
-                        textUtils.info("You are using the latest version of PvPClans (" + getDescription().getVersion() + ")");
+                        Utils.info("You are using the latest version of PvPClans (" + getDescription().getVersion() + ")");
                     } else {
-                        textUtils.warning("Version: " + version + " has been released! you are currently using version: " + getDescription().getVersion());
+                        Utils.warning("Version: " + version + " has been released! you are currently using version: " + getDescription().getVersion());
                     }
                 });
-            }*/
+            }
 
         } else {
             Utils.error("Disabling plugin cannot connect to database");
