@@ -1,6 +1,7 @@
 package me.MathiasMC.PvPClans.task;
 
 import me.MathiasMC.PvPClans.PvPClans;
+import me.MathiasMC.PvPClans.data.Clan;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.ArrayList;
@@ -29,12 +30,17 @@ public class SaveTask extends BukkitRunnable {
         Iterator<UUID> player = new ArrayList<>(this.player).iterator();
         while (clans.hasNext()) {
             long id = clans.next();
-            plugin.getClan(id).saveAsync();
+            if (plugin.getClans().containsKey(id)) {
+                plugin.getClan(id).saveAsync();
+            }
             this.clans.remove(id);
         }
         while (stats.hasNext()) {
             UUID uuid = stats.next();
-            plugin.getClanPlayer(uuid).getStats().saveAsync();
+            Clan clan = plugin.getClan(uuid);
+            if (clan != null) {
+                clan.getStats(uuid).saveAsync();
+            }
             this.stats.remove(uuid);
         }
         while (player.hasNext()) {

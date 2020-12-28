@@ -192,13 +192,13 @@ public class Database {
             r.runTaskAsynchronously(plugin);
     }
 
-    public String[] getClan(final long id) {
+    public String[] getClan(long clanID) {
         if (set()) {
             Statement statement = null;
             ResultSet resultSet = null;
             try {
                 statement = connection.createStatement();
-                resultSet = statement.executeQuery("SELECT * FROM clans WHERE clan= '" + id + "';");
+                resultSet = statement.executeQuery("SELECT * FROM clans WHERE clan= '" + clanID + "';");
                 if (resultSet.next()) {
                     return new String[]{
                             resultSet.getString("name"),
@@ -217,7 +217,7 @@ public class Database {
                 closeStatements(resultSet, statement);
             }
         }
-        return new String[] { "0", "", "", "", "", String.valueOf(plugin.getFileUtils().config.getLong("default.level", 1)), String.valueOf(plugin.getFileUtils().config.getLong("default.members", 1)), "", String.valueOf(new Timestamp(new Date().getTime())) };
+        return new String[] { "", "", "", "", "", String.valueOf(plugin.getFileUtils().config.getLong("default.level", 1)), String.valueOf(plugin.getFileUtils().config.getLong("default.members", 1)), "", String.valueOf(new Timestamp(new Date().getTime())) };
     }
 
     public void setClan(long clanID, String name, String prefix, UUID leader, String moderators, String members, long level, long maxMembers, String perks, Timestamp timestamp) {
@@ -274,7 +274,7 @@ public class Database {
         return array;
     }
 
-    public void deleteClan(final Clan clan) {
+    public void deleteClan(Clan clan) {
         if (!set()) return;
             final long clanID = clan.getID();
             BukkitRunnable r = new BukkitRunnable() {
@@ -282,7 +282,7 @@ public class Database {
                     PreparedStatement preparedStatement = null;
                     ResultSet resultSet = null;
                     try {
-                        connection.createStatement().executeUpdate("DELETE FROM '" + clanID + "'");
+                        connection.createStatement().executeUpdate("DELETE FROM `" + clanID + "`");
                         resultSet = connection.createStatement().executeQuery("SELECT * FROM clans WHERE clan= '" + clanID + "';");
                         if (resultSet.next()) {
                             preparedStatement = connection.prepareStatement("DELETE FROM clans WHERE clan = ?");
@@ -313,7 +313,7 @@ public class Database {
             r.runTaskAsynchronously(plugin);
     }
 
-    public void setClanStats(final UUID playerUUID, final long clanID, final long coins, final long share, final long xp, final long kills, final long deaths) {
+    public void setClanStats(UUID playerUUID, long clanID, long coins, long share, long xp, long kills, long deaths) {
         if (!set()) return;
         final String uuid = playerUUID.toString();
             BukkitRunnable r = new BukkitRunnable() {
@@ -321,14 +321,15 @@ public class Database {
                     PreparedStatement preparedStatement = null;
                     ResultSet resultSet = null;
                     try {
-                        resultSet = connection.createStatement().executeQuery("SELECT * FROM '" + clanID + "' WHERE uuid= '" + uuid + "';");
+                        resultSet = connection.createStatement().executeQuery("SELECT * FROM `" + clanID + "` WHERE uuid= '" + uuid + "';");
                         if (resultSet.next()) {
-                            preparedStatement = connection.prepareStatement("UPDATE '" + clanID + "' SET coins = ?, share = ?, xp = ?, kills = ?, deaths = ? WHERE uuid = ?");
+                            preparedStatement = connection.prepareStatement("UPDATE `" + clanID + "` SET coins = ?, share = ?, xp = ?, kills = ?, deaths = ? WHERE uuid = ?");
                             preparedStatement.setLong(1, coins);
                             preparedStatement.setLong(2, share);
                             preparedStatement.setLong(3, xp);
                             preparedStatement.setLong(4, kills);
                             preparedStatement.setLong(5, deaths);
+                            preparedStatement.setString(6, playerUUID.toString());
                             preparedStatement.executeUpdate();
                         }
                     } catch (SQLException exception) {
@@ -341,13 +342,13 @@ public class Database {
             r.runTaskAsynchronously(plugin);
     }
 
-    public long[] getClanStats(final UUID playerUUID, final long clanID) {
+    public long[] getClanStats(UUID playerUUID, long clanID) {
         if (set()) {
             Statement statement = null;
             ResultSet resultSet = null;
             try {
                 statement = connection.createStatement();
-                resultSet = statement.executeQuery("SELECT * FROM '" + clanID + "' WHERE uuid= '" + playerUUID.toString() + "';");
+                resultSet = statement.executeQuery("SELECT * FROM `" + clanID + "` WHERE uuid= '" + playerUUID.toString() + "';");
                 if (resultSet.next()) {
                     return new long[]{
                             resultSet.getLong("coins"),
@@ -362,9 +363,9 @@ public class Database {
                         PreparedStatement preparedStatement = null;
                         ResultSet resultSet = null;
                         try {
-                            resultSet = connection.createStatement().executeQuery("SELECT * FROM '" + clanID + "' WHERE uuid= '" + playerUUID.toString() + "';");
+                            resultSet = connection.createStatement().executeQuery("SELECT * FROM `" + clanID + "` WHERE uuid= '" + playerUUID.toString() + "';");
                             if (!resultSet.next()) {
-                                preparedStatement = connection.prepareStatement("INSERT INTO '" + clanID + "' (uuid, coins, share, xp, kills, deaths) VALUES(?, ?, ?, ?, ?, ?);");
+                                preparedStatement = connection.prepareStatement("INSERT INTO `" + clanID + "` (uuid, coins, share, xp, kills, deaths) VALUES(?, ?, ?, ?, ?, ?);");
                                 preparedStatement.setString(1, playerUUID.toString());
                                 preparedStatement.setLong(2, plugin.getFileUtils().config.getLong("default.coins", 0));
                                 if (plugin.getFileUtils().config.getBoolean("default.share", false)) {

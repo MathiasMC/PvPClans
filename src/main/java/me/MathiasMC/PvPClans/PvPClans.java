@@ -185,11 +185,11 @@ public class PvPClans extends JavaPlugin {
         return renameClan;
     }
 
-    public ClanPlayer getClanPlayer(final UUID playerUUID) {
+    public ClanPlayer getClanPlayer(UUID playerUUID) {
         if (clanPlayer.containsKey(playerUUID)) {
             return clanPlayer.get(playerUUID);
         }
-        final ClanPlayer clanPlayer = new ClanPlayer(playerUUID);
+        ClanPlayer clanPlayer = new ClanPlayer(playerUUID);
         this.clanPlayer.put(playerUUID, clanPlayer);
         return clanPlayer;
     }
@@ -198,16 +198,16 @@ public class PvPClans extends JavaPlugin {
         return playerMenu;
     }
 
-    public void removeClan(final long clanID) {
+    public void removeClan(long clanID) {
         this.clan.remove(clanID);
     }
 
-    public Clan getClan(final long clanID) {
+    public Clan getClan(long clanID) {
         if (clan.containsKey(clanID)) {
             return clan.get(clanID);
         }
         if (clanID == 0) return null;
-        final Clan clan = new Clan(clanID);
+        Clan clan = new Clan(clanID);
         this.clan.put(clanID, clan);
         return clan;
     }
