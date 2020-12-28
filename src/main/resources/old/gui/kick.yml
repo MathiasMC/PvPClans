@@ -1,0 +1,44 @@
+#                                         #
+#                PvPClans                 #
+#                   by                    #
+#                MathiasMC                #
+#  Any ideas for the plugin or need help? #
+#           contact me on spigot          #
+#                                         #
+
+title: '&8Clan > ( &cKick &8)'
+
+size: 27
+
+items:
+  '11':
+    material: '160:5'
+    name: '&8( &a&lACCEPT &8)'
+    lore:
+      - ' '
+      - '&8> &7Kick member'
+      - ' '
+      - '&8> &aLeft click to confirm.'
+    left:
+      perform:
+        - '[confirm] [gui] clan'
+  '15':
+    material: '160:14'
+    name: '&8( &c&lDENY &8)'
+    lore:
+      - ' '
+      - '&8> &aLeft click to deny the operation.'
+      - ' '
+    left:
+      perform:
+        - '[gui] clan'
+  '26':
+    material: '262'
+    name: '&8( &cBack &8)'
+    lore:
+      - ' '
+      - '&8> &7Go back to clans menu.'
+      - ' '
+    left:
+      perform:
+        - '[gui] clan'

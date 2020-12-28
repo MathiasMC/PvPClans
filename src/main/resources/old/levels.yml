@@ -1,0 +1,194 @@
+#                                         #
+#                PvPClans                 #
+#                   by                    #
+#                MathiasMC                #
+#  Any ideas for the plugin or need help? #
+#           contact me on spigot          #
+#                                         #
+
+'2':
+  leader:
+    - 'pvpclans message {player} &7[&6&lLeader Info&7] &f&l» &7The clan is now level &c{clan_level}'
+    - 'pvpclans perk add {player} damage 5 0'
+  moderator:
+    - 'pvpclans message {player} &7[&6&lModerator Info&7] &f&l» &7The clan is now level &c{clan_level}'
+  member:
+    - 'pvpclans message {player} &7[&6&lMember Info&7] &f&l» &7The clan is now level &c{clan_level}'
+  xp: 200
+  material: '267'
+  name: '&8( &cLevel 2 &8)'
+  lore:
+    - ' '
+    - '&8> &7Clan Damage &c5&7% chance to not hit.'
+    - ' '
+    - '&8> &7Needed Xp &e{clan_xp_need}'
+    - ' '
+'3':
+  leader:
+    - 'pvpclans message {player} &7[&6&lLeader Info&7] &f&l» &7The clan is now level &c{clan_level}'
+    - 'pvpclans perk add {player} damage 7 0'
+  moderator:
+    - 'pvpclans message {player} &7[&6&lModerator Info&7] &f&l» &7The clan is now level &c{clan_level}'
+  member:
+    - 'pvpclans message {player} &7[&6&lMember Info&7] &f&l» &7The clan is now level &c{clan_level}'
+  xp: 300
+  material: '267'
+  name: '&8( &cLevel 3 &8)'
+  lore:
+    - ' '
+    - '&8> &7Clan Damage &c7&7% chance to not hit.'
+    - ' '
+    - '&8> &7Needed Xp &e{clan_xp_need}'
+    - ' '
+'4':
+  leader:
+    - 'pvpclans message {player} &7[&6&lLeader Info&7] &f&l» &7The clan is now level &c{clan_level}'
+    - 'pvpclans perk add {player} xp-bonus 5 0'
+  moderator:
+    - 'pvpclans message {player} &7[&6&lModerator Info&7] &f&l» &7The clan is now level &c{clan_level}'
+  member:
+    - 'pvpclans message {player} &7[&6&lMember Info&7] &f&l» &7The clan is now level &c{clan_level}'
+  xp: 400
+  material: '384'
+  name: '&8( &cLevel 4 &8)'
+  lore:
+    - ' '
+    - '&8> &7Bonus Xp &c5&7% more.'
+    - ' '
+    - '&8> &7Needed Xp &e{clan_xp_need}'
+    - ' '
+'5':
+  leader:
+    - 'pvpclans message {player} &7[&6&lLeader Info&7] &f&l» &7The clan is now level &c{clan_level}'
+    - 'pvpclans perk add {player} explosive-arrow 20 1'
+  moderator:
+    - 'pvpclans message {player} &7[&6&lModerator Info&7] &f&l» &7The clan is now level &c{clan_level}'
+  member:
+    - 'pvpclans message {player} &7[&6&lMember Info&7] &f&l» &7The clan is now level &c{clan_level}'
+  xp: 500
+  material: '261'
+  name: '&8( &cLevel 5 &8)'
+  lore:
+    - ' '
+    - '&8> &7Explosive Arrow'
+    - '&8> &c1 &7out of &c20 &7chance to explode on hit.'
+    - ' '
+    - '&8> &7Needed Xp &e{clan_xp_need}'
+    - ' '
+'6':
+  leader:
+    - 'pvpclans message {player} &7[&6&lLeader Info&7] &f&l» &7The clan is now level &c{clan_level}'
+    - 'pvpclans perk add {player} damage 10 0'
+    - 'pvpclans perk add {player} xp-bonus 10 0'
+  moderator:
+    - 'pvpclans message {player} &7[&6&lModerator Info&7] &f&l» &7The clan is now level &c{clan_level}'
+  member:
+    - 'pvpclans message {player} &7[&6&lMember Info&7] &f&l» &7The clan is now level &c{clan_level}'
+  xp: 600
+  material: '384'
+  name: '&8( &cLevel 6 &8)'
+  lore:
+    - ' '
+    - '&8> &7Clan Damage ( &c10&7% ) chance to not hit.'
+    - '&8> &7Bonus Xp ( &c10&7% ) more.'
+    - ' '
+    - '&8> &7Needed Xp &e{clan_xp_need}'
+    - ' '
+'7':
+  leader:
+    - 'pvpclans message {player} &7[&6&lLeader Info&7] &f&l» &7The clan is now level &c{clan_level}'
+    - 'pvpclans perk add {player} explosive-arrow 15 2'
+  moderator:
+    - 'pvpclans message {player} &7[&6&lModerator Info&7] &f&l» &7The clan is now level &c{clan_level}'
+  member:
+    - 'pvpclans message {player} &7[&6&lMember Info&7] &f&l» &7The clan is now level &c{clan_level}'
+  xp: 700
+  material: '261'
+  name: '&8( &cLevel 7 &8)'
+  lore:
+    - ' '
+    - '&8> &7Explosive Arrow'
+    - '&8> &c1 &7out of &c15 &7chance to explode on hit.'
+    - '&8> &7More powerful'
+    - ' '
+    - '&8> &7Needed Xp &e{clan_xp_need}'
+    - ' '
+'8':
+  leader:
+    - 'pvpclans message {player} &7[&6&lLeader Info&7] &f&l» &7The clan is now level &c{clan_level}'
+    - 'pvpclans perk add {player} explosive-arrow 10 2'
+  moderator:
+    - 'pvpclans message {player} &7[&6&lModerator Info&7] &f&l» &7The clan is now level &c{clan_level}'
+  member:
+    - 'pvpclans message {player} &7[&6&lMember Info&7] &f&l» &7The clan is now level &c{clan_level}'
+  xp: 800
+  material: '261'
+  name: '&8( &cLevel 8 &8)'
+  lore:
+    - ' '
+    - '&8> &7Explosive Arrow'
+    - '&8> &c1 &7out of &c10 &7chance to explode on hit.'
+    - ' '
+    - '&8> &7Needed Xp &e{clan_xp_need}'
+    - ' '
+'9':
+  leader:
+    - 'pvpclans message {player} &7[&6&lLeader Info&7] &f&l» &7The clan is now level &c{clan_level}'
+    - 'pvpclans perk add {player} explosive-arrow 8 3'
+  moderator:
+    - 'pvpclans message {player} &7[&6&lModerator Info&7] &f&l» &7The clan is now level &c{clan_level}'
+  member:
+    - 'pvpclans message {player} &7[&6&lMember Info&7] &f&l» &7The clan is now level &c{clan_level}'
+  xp: 900
+  material: '261'
+  name: '&8( &cLevel 9 &8)'
+  lore:
+    - ' '
+    - '&8> &7Explosive Arrow'
+    - '&8> &c1 &7out of &c8 &7chance to explode on hit.'
+    - '&8> &7More powerful'
+    - ' '
+    - '&8> &7Needed Xp &e{clan_xp_need}'
+    - ' '
+'10':
+  leader:
+    - 'pvpclans message {player} &7[&6&lLeader Info&7] &f&l» &7The clan is now level &c{clan_level}'
+    - 'pvpclans perk add {player} damage 20 0'
+    - 'pvpclans perk add {player} xp-bonus 15 0'
+    - 'pvpclans perk add {player} coins-bonus 5 0'
+    - 'pvpclans perk add {player} explosive-arrow 3 3'
+  moderator:
+    - 'pvpclans message {player} &7[&6&lModerator Info&7] &f&l» &7The clan is now level &c{clan_level}'
+  member:
+    - 'pvpclans message {player} &7[&6&lMember Info&7] &f&l» &7The clan is now level &c{clan_level}'
+  xp: 1000
+  material: '348'
+  name: '&8( &cLevel 10 &8)'
+  lore:
+    - ' '
+    - '&8> &7Clan Damage &c20&7% chance to not hit.'
+    - '&8> &7Bonus Xp &c15&7% more.'
+    - '&8> &7Bonus Coins &c5&7% more.'
+    - '&8> &7Explosive Arrow'
+    - '&8> &c1 &7out of &c3 &7chance to explode on hit.'
+    - ' '
+    - '&8> &7Needed Xp &e{clan_xp_need}'
+    - ' '
+'11':
+  leader:
+    - 'pvpclans message {player} &7[&6&lLeader Info&7] &f&l» &7The clan is now level &c{clan_level}'
+    - 'pvpclans perk add {player} explosive-arrow 2 3'
+  moderator:
+    - 'pvpclans message {player} &7[&6&lModerator Info&7] &f&l» &7The clan is now level &c{clan_level}'
+  member:
+    - 'pvpclans message {player} &7[&6&lMember Info&7] &f&l» &7The clan is now level &c{clan_level}'
+  xp: 1100
+  material: '348'
+  name: '&8( &cLevel 11 &8)'
+  lore:
+    - ' '
+    - '&8> &7Explosive Arrow'
+    - '&8> &c1 &7out of &c2 &7chance to explode on hit.'
+    - ' '
+    - '&8> &7Needed Xp &e{clan_xp_need}'
+    - ' '

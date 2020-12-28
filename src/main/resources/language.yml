@@ -1,0 +1,403 @@
+#                                         #
+#                PvPClans                 #
+#                   by                    #
+#                MathiasMC                #
+#  Any ideas for the plugin or need help? #
+#           contact me on spigot          #
+#                                         #
+command:
+  world:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7You cannot to do that here.'
+  none:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7You are not in a clan.'
+  permission:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7You dont have access to use this command!'
+  unknown:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7Unknown sub command &c{command}.'
+  online:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7The player is not online!'
+  number:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7The number is not allowed.'
+  bounds:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7The number is out of bounds.'
+help:
+  player:
+  - |-
+    pvpclans message {player} &7&m---------------------------------------------
+    &f&l» &c/pvpclans create <name>
+    &f&l» &c/pvpclans invite <player>
+    &f&l» &c/pvpclans accept <player>
+    &f&l» &c/pvpclans leave
+    &f&l» &c/pvpclans deny <player>
+    &f&l» &c/pvpclans kick <player>
+    &f&l» &c/pvpclans delete
+    &f&l» &c/pvpclans chat <text>
+    &7&m---------------------------------------------
+  admin:
+  - |-
+    pvpclans message {player} &7&m---------------------------------------------
+    &f&l» &c/pvpclans create <name>
+    &f&l» &c/pvpclans invite <player>
+    &f&l» &c/pvpclans accept <player>
+    &f&l» &c/pvpclans leave
+    &f&l» &c/pvpclans deny <player>
+    &f&l» &c/pvpclans kick <player>
+    &f&l» &c/pvpclans delete
+    &f&l» &c/pvpclans chat <text>
+    &f&l» &c/pvpclans reload
+    &f&l» &c/pvpclans message <player> <text>
+    &f&l» &c/pvpclans broadcast <null/permission> <text>
+    &f&l» &c/pvpclans coins <player> <+-amount>
+    &f&l» &c/pvpclans xp <player> <+-amount>
+    &f&l» &c/pvpclans perk add <player> <perk> <number> <number>
+    &f&l» &c/pvpclans perk remove <player> <perk>
+    &7&m---------------------------------------------
+reload:
+  - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7Reloaded all configs.'
+message:
+  - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7Usage: &c/pvpclans message <player> <text>'
+broadcast:
+  - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7Usage: &c/pvpclans broadcast <null/permission> <text>'
+create:
+  usage:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7Usage: &c/pvpclans create <name>'
+  already:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7You are already in a clan.'
+  exists:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7A clan with name ( &c{clan} &7) already exists.'
+  valid:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7Clan name ( &c{clan} &7) is not allowed, try another name.'
+  enough:
+    - 'pvpclans message {player} &7[&6&lClan Info&7] &f&l» &7You dont have enough coins to create a new clan, cost 5000.'
+  player:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7You have created a new clan ( &c{clan} &7), &7you have got ID ( &c{id} &7)'
+    - 'pvpclans broadcast null &c{player} &7has created a new clan ( &c{clan} &7)'
+invite:
+  usage:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7Usage: &c/pvpclans invite <player>'
+  none:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7You are not in a clan.'
+  own:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &c{target} &7is already in your clan.'
+  another:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &c{target} &7is already in another clan.'
+  already:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &c{target} &7already have an invite.'
+  limit:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7You cannot invite more, you have reached the max members.'
+  rank:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7Only moderators, or higher can invite players.'
+  target:
+    - 'pvpclans message {target} &7[&f&lPvP&c&lClans&7] &f&l» &7You have got an invite to join clan ( &c{clan} &7)'
+    - 'pvpclans message {target} &7[&f&lPvP&c&lClans&7] &f&l» &7/pvpclans accept, deny &c{player}'
+  leader:
+    - 'pvpclans message {leader} &7[&6&lLeader Info&7] &f&l» &c{player} &7has invited &c{target}&7.'
+  moderator:
+    - 'pvpclans message {member} &7[&6&lModerator Info&7] &f&l» &c{player} &7has invited &c{target}&7.'
+  member:
+    - 'pvpclans message {member} &7[&6&lMember Info&7] &f&l» &c{player} &7has invited &c{target}&7.'
+accept:
+  usage:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7Usage: &c/pvpclans accept <player>'
+  none:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7You dont have any invites.'
+  already:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7You are already in a clan.'
+  deleted:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7You cannot accept, clan was deleted.'
+  limit:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7You cannot accept, clan have reached max members.'
+  target:
+    - 'pvpclans message {player} &7[&6&lMember Info&7] &f&l» &7You have joined the clan ( &c{clan} &7) the leader is &c{leader}'
+  leader:
+    - 'pvpclans message {leader} &7[&6&lLeader Info&7] &f&l» &c{player} &7has joined the clan.'
+  moderator:
+    - 'pvpclans message {member} &7[&6&lModerator Info&7] &f&l» &c{player} &7has joined the clan.'
+  member:
+    - 'pvpclans message {member} &7[&6&lMember Info&7] &f&l» &c{player} &7has joined the clan.'
+leave:
+  none:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7You are not in a clan.'
+  cannot:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7You cannot leave, you are the leader.'
+  target:
+    - 'pvpclans message {player} &7[&6&lClan Info&7] &f&l» &7You have quit clan ( &c{clan} &7)'
+  leader:
+    - 'pvpclans message {leader} &7[&6&lLeader Info&7] &f&l» &c{player} &7has quit the clan.'
+  moderator:
+    - 'pvpclans message {member} &7[&6&lModerator Info&7] &f&l» &c{player} &7has quit the clan.'
+  member:
+    - 'pvpclans message {member} &7[&6&lMember Info&7] &f&l» &c{player} &7has quit the clan.'
+deny:
+  usage:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7Usage: &c/pvpclans deny <player>'
+  none:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7You dont have any invites.'
+  target:
+    - 'pvpclans message {target} &7[&f&lPvP&c&lClans&7] &f&l» &7You have denied clan ( &c{clan} &7)'
+  leader:
+    - 'pvpclans message {leader} &7[&6&lLeader Info&7] &f&l» &c{target} &7has denied the invite to the clan.'
+  moderator:
+    - 'pvpclans message {member} &7[&6&lModerator Info&7] &f&l» &c{target} &7has denied the invite.'
+  member:
+    - 'pvpclans message {member} &7[&6&lMember Info&7] &f&l» &c{target} &7has denied the invite.'
+kick:
+  usage:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7Usage: &c/pvpclans kick <player>'
+  none:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7You are not in a clan.'
+  rank:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7Only moderators, or higher can kick players.'
+  cannot:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7You cannot kick that player.'
+  clan:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &c{target} &7is not in your clan.'
+  target:
+    - 'pvpclans message {player} &7[&6&lClan Info&7] &f&l» &7You have been kicked from the clan ( &c{clan} &7)'
+  leader:
+    - 'pvpclans message {leader} &7[&6&lLeader Info&7] &f&l» &c{player} &7has kicked &c{target}'
+  moderator:
+    - 'pvpclans message {member} &7[&6&lModerator Info&7] &f&l» &c{player} &7has kicked &c{target}'
+  member:
+    - 'pvpclans message {member} &7[&6&lMember Info&7] &f&l» &c{player} &7has kicked &c{target}'
+delete:
+  usage:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7Usage: &c/pvpclans delete confirm, cancel'
+  request:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7You must do /pvpclans detele confirm, cancel.'
+  none:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7You are not in a clan.'
+  clan:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7To deleted now use /pvpclans delete confirm, cancel'
+  only:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7Only the leader can delete the clan.'
+  cannot:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7You dont have any delete request.'
+  cancel:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7You have canceled the delete request.'
+  leader:
+    - 'pvpclans message {leader} &7[&6&lLeader Info&7] &f&l» &7You have deleted clan &c{clan}'
+  moderator:
+    - 'pvpclans message {member} &7[&6&lModerator Info&7] &f&l» &7Leader has deleted the clan.'
+  member:
+    - 'pvpclans message {member} &7[&6&lMember Info&7] &f&l» &7Leader has deleted the clan.'
+chat:
+  usage:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7Usage: &c/pvpclans chat <text>'
+  none:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7You are not in a clan.'
+  leader:
+    - 'pvpclans message {player} &6&lClan Chat > &c{member} &f{text}'
+  member:
+    - 'pvpclans message {player} &6&lClan Chat > &a{member} &f{text}'
+  moderator:
+    - 'pvpclans message {player} &6&lClan Chat > &9{member} &f{text}'
+coins:
+  usage:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7Usage: &c/pvpclans coins <player> <+-amount>'
+  set:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7Your coins has been set to ( &c{coins} &7)'
+  add:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7You have got ( &c{coins} &7) coins.'
+  set-bonus:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7Your coins has been set to ( &c{coins} &7) + {coins_bonus} bonus coins'
+  add-bonus:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7You have got ( &c{coins} &7) coins. + {coins_bonus} bonus coins'
+  remove:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7( &c{coins} &7) coins were taken from you.'
+  player-set:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7You have set &c{target} &7coins to ( &c{coins} &7)'
+  player-add:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7You have added ( &c{coins} &7) coins to &c{target}'
+  player-remove:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7( &c{coins} &7) coins were taken from &c{target}'
+xp:
+  usage:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7Usage: &c/pvpclans xp <player> <+-amount>'
+  set:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7Your xp has been set to ( &c{xp} &7)'
+  add:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7You have got ( &c{xp} &7) xp.'
+  set-bonus:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7Your xp has been set to ( &c{xp} &7) + {xp_bonus} bonus xp'
+  add-bonus:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7You have got ( &c{xp} &7) xp. + {xp_bonus} bonus xp'
+  remove:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7( &c{xp} &7) xp were taken from you.'
+  player-set:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7You have set &c{target} &7xp to ( &c{xp} &7)'
+  player-add:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7You have added ( &c{xp} &7) xp to &c{target}'
+  player-remove:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7( &c{xp} &7) coins were taken from &c{target}'
+  none:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7You are not in a clan.'
+perk:
+  usage:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7Usage: &c/pvpclans perk add/remove <player> <perkName> <number (add)> <number (add)>'
+  add:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7Added perk &7( &c{perk} &7) with values ( &c{value}&7,&c{value_last} &7) to clan ( &c{clan} &7)'
+  remove:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7Removed perk &7( &c{perk} &7) from clan ( &c{clan} &7)'
+  valid:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7Perk &7( &c{perk} &7) is not valid.'
+  none:
+    - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7You are not in a clan.'
+gui:
+  moderator:
+    leader:
+      - 'pvpclans message {leader} &7[&6&lLeader Info&7] &f&l» &7You have set &c{target} &7rank to ( &9Moderator &7)'
+    moderator:
+      - 'pvpclans message {member} &7[&6&lModerator Info&7] &f&l» &c{target} &7has got a new rank ( &9Moderator &7)'
+    member:
+      - 'pvpclans message {member} &7[&6&lMember Info&7] &f&l» &c{target} &7has got a new rank ( &9Moderator &7)'
+    rank:
+      - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7Only the leader can do that.'
+    cannot:
+      - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7You cannot change leader rank.'
+  member:
+    leader:
+      - 'pvpclans message {leader} &7[&6&lLeader Info&7] &f&l» &7You have set &c{target} &7rank to ( &aMember &7)'
+    moderator:
+      - 'pvpclans message {member} &7[&6&lModerator Info&7] &f&l» &c{target} &7has got a new rank ( &aMember &7)'
+    member:
+      - 'pvpclans message {member} &7[&6&lMember Info&7] &f&l» &c{target} &7has got a new rank ( &aMember &7)'
+  kick:
+    leader:
+      - 'pvpclans message {leader} &7[&6&lLeader Info&7] &f&l» &c{player} &7has kicked &c{target}'
+    moderator:
+      - 'pvpclans message {member} &7[&6&lModerator Info&7] &f&l» &c{player} &7has kicked &c{target}'
+    member:
+      - 'pvpclans message {member} &7[&6&lMember Info&7] &f&l» &c{player} &7has kicked &c{target}'
+    target:
+      - 'pvpclans message {player} &7[&6&lClan Info&7] &f&l» &7You have been kicked from the clan ( &c{clan} &7)'
+    rank:
+      - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7Only moderators, or higher can kick players.'
+    cannot:
+      - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7You cannot kick that player.'
+  rename:
+    leader:
+      - 'pvpclans message {leader} &7[&6&lClan Info&7] &f&l» &7Clan name changed to ( &c{clan} &7)'
+    moderator:
+      - 'pvpclans message {member} &7[&6&lModerator Info&7] &f&l» &7Clan name changed to ( &c{clan} &7)'
+    member:
+      - 'pvpclans message {member} &7[&6&lMember Info&7] &f&l» &7Clan name changed to ( &c{clan} &7)'
+    target:
+      - 'pvpclans message {player} &7[&6&lClan Info&7] &f&l» &7Now type the name you want in the chat.'
+    enough:
+      - 'pvpclans message {player} &7[&6&lClan Info&7] &f&l» &7You dont have enough coins.'
+    exists:
+      - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7A clan with name ( &c{clan} &7) already exists.'
+    name:
+      - 'pvpclans message {player} &7[&6&lClan Info&7] &f&l» &7Clan name ( &c{clan} &7) is not allowed, try another name.'
+  member-size:
+    leader:
+      - 'pvpclans message {leader} &7[&6&lLeader Info&7] &f&l» &7You can now have 1 extra member.'
+    moderator:
+      - 'pvpclans message {member} &7[&6&lModerator Info&7] &f&l» &7The leader bought 1 extra member.'
+    member:
+      - 'pvpclans message {member} &7[&6&lMember Info&7] &f&l» &7The leader bought 1 extra member.'
+    enough:
+      - 'pvpclans message {player} &7[&6&lClan Info&7] &f&l» &7You dont have enough coins.'
+    limit:
+      - 'pvpclans message {player} &7[&6&lClan Info&7] &f&l» &7You cannot buy more members, limit is reached.'
+  upgrade:
+    max:
+      - 'pvpclans message {player} &7[&6&lClan Info&7] &f&l» &7You are already max level.'
+    enough-xp:
+      - 'pvpclans message {player} &7[&6&lClan Info&7] &f&l» &7You dont have enough xp.'
+    enough-coins:
+      - 'pvpclans message {player} &7[&6&lClan Info&7] &f&l» &7You dont have enough coins.'
+  perks:
+    rank:
+      - 'pvpclans message {player} &7[&f&lPvP&c&lClans&7] &f&l» &7Only moderators, or higher can change this.'
+console:
+  command:
+    unknown:
+      - '&7[&f&lPvP&c&lClans&7] &f&l» &7Unknown sub command &c{command}.'
+    online:
+      - '&7[&f&lPvP&c&lClans&7] &f&l» &7The player is not online!'
+    player:
+      - '&7[&f&lPvP&c&lClans&7] &f&l» &7You must be a player to use that command.'
+    number:
+      - '&7[&f&lPvP&c&lClans&7] &f&l» &7The number is not allowed.'
+    bounds:
+      - '&7[&f&lPvP&c&lClans&7] &f&l» &7The number is out of bounds.'
+    message:
+      - |-
+        &7&m---------------------------------------------
+        &f&l» &f&lPvP&c&lClans &7created by &cMathiasMC
+        &f&l» &7Version - &b{version}
+        &f&l» &c/pvpclans help &7for list of commands
+        &f&l» &9Any ideas for the plugin or need help?
+        &f&l» &9Contact me on spigot.
+        &7&m---------------------------------------------
+  help:
+   - |-
+    &7&m---------------------------------------------
+    &f&l» &c/pvpclans message <player> <text>
+    &f&l» &c/pvpclans broadcast <null/permission> <text>
+    &f&l» &c/pvpclans reload
+    &f&l» &c/pvpclans coins <player> <+-amount>
+    &f&l» &c/pvpclans xp <player> <+-amount>
+    &f&l» &c/pvpclans perk add <player> <perk> <number> <number>
+    &f&l» &c/pvpclans perk remove <player> <perk>
+    &7&m---------------------------------------------
+  reload:
+    - '&7[&f&lPvP&c&lClans&7] &f&l» &7Reloaded all configs.'
+  message:
+    - '&7[&f&lPvP&c&lClans&7] &f&l» &7Usage: &c/pvpclans message <player> <text>'
+  broadcast:
+    - '&7[&f&lPvP&c&lClans&7] &f&l» &7Usage: &c/pvpclans broadcast <null/permission> <text>'
+  coins:
+    usage:
+      - '&7[&f&lPvP&c&lClans&7] &f&l» &7Usage: &c/pvpclans coins <player> <+-amount>'
+    set:
+      - '&7[&f&lPvP&c&lClans&7] &f&l» &c{target} &7coins set to ( &c{coins} &7)'
+    add:
+      - '&7[&f&lPvP&c&lClans&7] &f&l» &7Added ( &c{coins} &7) coins to &c{target}'
+    remove:
+      - '&7[&f&lPvP&c&lClans&7] &f&l» &7( &c{coins} &7) coins were taken from &c{target}'
+  xp:
+    usage:
+      - '&7[&f&lPvP&c&lClans&7] &f&l» &7Usage: &c/pvpclans xp <player> <+-amount>'
+    set:
+      - '&7[&f&lPvP&c&lClans&7] &f&l» &c{target} &7xp set to ( &c{xp} &7)'
+    add:
+      - '&7[&f&lPvP&c&lClans&7] &f&l» &7Added ( &c{xp} &7) xp to &c{target}'
+    remove:
+      - '&7[&f&lPvP&c&lClans&7] &f&l» &7( &c{xp} &7) xp were taken from &c{target}'
+    none:
+      - '&7[&f&lPvP&c&lClans&7] &f&l» &7Player is not in a clan.'
+  perk:
+    usage:
+      - '&7[&f&lPvP&c&lClans&7] &f&l» &7Usage: &c/pvpclans perk add/remove <player> <perkName> <number (add)>'
+    add:
+      - '&7[&f&lPvP&c&lClans&7] &f&l» &7Added perk &7( &c{perk} &7) with values ( &c{value}&7,&c{value_last} &7) to clan ( &c{clan} &7)'
+    remove:
+      - '&7[&f&lPvP&c&lClans&7] &f&l» &7Removed perk &7( &c{perk} &7) from clan ( &c{clan} &7)'
+    valid:
+      - '&7[&f&lPvP&c&lClans&7] &f&l» &7Perk &7( &c{perk} &7) is not valid.'
+    none:
+      - '&7[&f&lPvP&c&lClans&7] &f&l» &7You are not in a clan.'
+
+translate:
+  clan: 'None'
+  share:
+    enabled: '&aYes'
+    disabled: '&cNo'
+  online:
+    enabled: '&aYes'
+    disabled: '&cNo'
+  perk:
+    enabled: '&aYes'
+    disabled: '&cNo'
+  time:
+    second: Second
+    seconds: Seconds
+    minute: Minute
+    minutes: Minutes
+    hour: Hour
+    hours: Hours
+    day: Day
+    days: Days

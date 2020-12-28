@@ -1,0 +1,143 @@
+#                                         #
+#                PvPClans                 #
+#                   by                    #
+#                MathiasMC                #
+#  Any ideas for the plugin or need help? #
+#           contact me on spigot          #
+#                                         #
+
+title: '&8Clan > ( &c{clan} &8)'
+
+size: 45
+
+leader:
+  name: '&c{player}'
+  lore:
+    - ' '
+    - '&8> &7Rank &cLeader'
+    - '&8> &7Kills &e{kills}'
+    - '&8> &7Deaths &e{deaths}'
+    - '&8> &7Coins &e{coins}'
+    - '&8> &7Xp &e{xp}'
+    - '&8> &7Share Coins {share}'
+    - '&8> &7Online {online}'
+    - ' '
+  slot: 0
+moderator:
+  name: '&c{player}'
+  lore:
+    - ' '
+    - '&8> &7Rank &9Moderator'
+    - '&8> &7Kills &e{kills}'
+    - '&8> &7Deaths &e{deaths}'
+    - '&8> &7Coins &e{coins}'
+    - '&8> &7Xp &e{xp}'
+    - '&8> &7Share Coins {share}'
+    - '&8> &7Online {online}'
+    - ' '
+    - '&8> &aRight click to kick out of the clan.'
+    - '&8> &aLeft click to authorize member.'
+    - ' '
+member:
+  name: '&c{player}'
+  lore:
+    - ' '
+    - '&8> &7Rank &aMember'
+    - '&8> &7Kills &e{kills}'
+    - '&8> &7Deaths &e{deaths}'
+    - '&8> &7Coins &e{coins}'
+    - '&8> &7Xp &e{xp}'
+    - '&8> &7Share Coins {share}'
+    - '&8> &7Online {online}'
+    - ' '
+    - '&8> &aRight click to kick out of the clan.'
+    - '&8> &aLeft click to authorize moderator.'
+    - ' '
+  slot:
+    - 9
+    - 18
+    - 27
+    - 36
+
+items:
+  '3':
+    material: 'sunflower'
+    name: '&8( &cShare Coins &8)'
+    lore:
+      - ' '
+      - '&8> &7Share: {share}'
+      - ' '
+      - '&8> &7Between all members.'
+      - ' '
+      - '&8> &aClick to change.'
+      - ' '
+    left:
+      perform:
+        - '[share_coins]'
+  '4':
+    material: 'diamond'
+    name: '&8( &c{clan} &8)'
+    lore:
+      - ' '
+      - '&8> &7ID &e{id}'
+      - ' '
+      - '&8> &7Kills &e{clan_kills}'
+      - '&8> &7Deaths &e{clan_deaths}'
+      - '&8> &7Available Coins &e{clan_coins}'
+      - '&8> &7Xp &e{clan_xp}'
+      - ' '
+      - '&8> &7Level &e{clan_level}'
+      - ' '
+      - '&8> &7Last Quit &e{clan_time}'
+      - ' '
+  '13':
+    material: 'coal'
+    name: '&8( &cMarket &8)'
+    lore:
+      - ' '
+      - '&8> &7The market is for the leader.'
+      - ' '
+    left:
+      perform:
+        - '[gui] market'
+  '22':
+    material: 'emerald'
+    name: '&8( &cUpgrades &8)'
+    lore:
+      - ' '
+      - '&8> &7List of available perks at level.'
+      - ' '
+    left:
+      perform:
+        - '[gui] upgrades'
+  '31':
+    material: 'map'
+    name: '&8( &cAll Clans &8)'
+    lore:
+      - ' '
+      - '&8> &7List of all clans created.'
+      - ' '
+    left:
+      perform:
+        - '[gui] clans'
+  '40':
+    material: 'flower_pot'
+    name: '&8( &cPerks &8)'
+    lore:
+      - ' '
+      - '&8> &7List of all perks this clan has.'
+      - ' '
+    left:
+      perform:
+        - '[gui] perks'
+  '44':
+    material: 'iron_bars'
+    name: '&8( &cLeave Clan &8)'
+    lore:
+      - ' '
+      - '&8> &7Right click to leave.'
+      - ' '
+    right:
+      perform:
+        - '[close]'
+        - '[command] [player] pvpclans leave'

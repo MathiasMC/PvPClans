@@ -1,0 +1,57 @@
+#                                         #
+#                PvPClans                 #
+#                   by                    #
+#                MathiasMC                #
+#  Any ideas for the plugin or need help? #
+#           contact me on spigot          #
+#                                         #
+
+title: '&8Clan > ( &cMarket &8)'
+
+size: 27
+
+items:
+  '11':
+    material: '339'
+    name: '&8( &cMember Size &8)'
+    lore:
+      - ' '
+      - '&8> &7Active members &e{clan_members}'
+      - '&8> &7Max is &e{clan_max_members}'
+      - '&8> &7Limit &e{clan_members_limit}'
+      - ' '
+    left:
+      perform:
+        - '[gui] market_member_size'
+  '13':
+    material: '388'
+    name: '&8( &cUpgrade &8)'
+    lore:
+      - ' '
+      - '&8> &7Level &e{clan_level}'
+      - ' '
+      - '&8> &aClick to upgrade.'
+      - ' '
+    left:
+      perform:
+        - '[gui] market_upgrade'
+  '15':
+    material: '421'
+    name: '&8( &cRename &8)'
+    lore:
+      - ' '
+      - '&8> &7Active &e{clan}'
+      - ' '
+    left:
+      perform:
+        - '[gui] market_rename'
+  '26':
+    material: '262'
+    name: '&8( &cBack &8)'
+    lore:
+      - ' '
+      - '&8> &7Go back to clans menu.'
+      - ' '
+    left:
+      perform:
+        - '[gui] clan'

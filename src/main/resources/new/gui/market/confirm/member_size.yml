@@ -1,0 +1,43 @@
+#                                         #
+#                PvPClans                 #
+#                   by                    #
+#                MathiasMC                #
+#  Any ideas for the plugin or need help? #
+#           contact me on spigot          #
+#                                         #
+
+title: '&8Clan > ( &cMember Size &8)'
+
+size: 27
+
+items:
+  '11':
+    material: 'lime_stained_glass_pane'
+    name: '&a&lACCEPT'
+    lore:
+      - ' '
+      - '&8> &7Left click to confirm.'
+      - ' '
+    left:
+      perform:
+        - '[confirm] [gui] market'
+  '15':
+    material: 'red_stained_glass_pane'
+    name: '&c&lDENY'
+    lore:
+      - ' '
+      - '&8> &7Click to deny the operation.'
+      - ' '
+    left:
+      perform:
+        - '[gui] market_member_size'
+  '26':
+    material: 'arrow'
+    name: '&cBack'
+    lore:
+      - ' '
+      - '&8> &7Go back to member size menu.'
+      - ' '
+    left:
+      perform:
+        - '[gui] market_member_size'

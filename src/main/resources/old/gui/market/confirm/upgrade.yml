@@ -1,0 +1,43 @@
+#                                         #
+#                PvPClans                 #
+#                   by                    #
+#                MathiasMC                #
+#  Any ideas for the plugin or need help? #
+#           contact me on spigot          #
+#                                         #
+
+title: '&8Clan > ( &cUpgrade &8)'
+
+size: 27
+
+items:
+  '11':
+    material: '160:5'
+    name: '&a&lACCEPT'
+    lore:
+      - ' '
+      - '&8> &7Left click to confirm.'
+      - ' '
+    left:
+      perform:
+        - '[confirm] [gui] market'
+  '15':
+    material: '160:14'
+    name: '&c&lDENY'
+    lore:
+      - ' '
+      - '&8> &7Click to deny the operation.'
+      - ' '
+    left:
+      perform:
+        - '[gui] market_upgrade'
+  '26':
+    material: '262'
+    name: '&cBack'
+    lore:
+      - ' '
+      - '&8> &7Go back to upgrade menu.'
+      - ' '
+    left:
+      perform:
+        - '[gui] market_upgrade'

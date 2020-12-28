@@ -1,0 +1,122 @@
+#                                         #
+#                PvPClans                 #
+#                   by                    #
+#                MathiasMC                #
+#  Any ideas for the plugin or need help? #
+#           contact me on spigot          #
+#                                         #
+
+# Check for updates on startup?
+update-check: true
+
+# Debug
+debug: false
+
+# Enable build-in perks
+# Should only be set to false, if you dont want to use perks
+# or use the API to add your own custom perks and dont want the build-in perks.
+perks: true
+
+# Database settings
+mysql:
+  use: false
+  host: localhost
+  port: 3306
+  # After database you can use, ?useSSL=false
+  database: database
+  username: username
+  password: password
+
+  # Save stats every x amount of minutes.
+  # Write data to the database (Async) if (player, clan) has changed data)
+  # Recommend max is 10
+  # Only used for kills, deaths, more, and not important changes
+  save: 2
+
+  # Automatically remove inactive clans from the database (remove section to disable)
+  purge:
+
+    # How often to check the activity of players? Hours.
+    interval: 3
+
+    # Check on server startup?
+    check-on-startup: true
+
+    # How many days a clan must be offline to remove clan from the database.
+    inactive-days: 45
+
+# Default values for clans.
+default:
+  level: 1
+  members: 1
+  coins: 0
+  share: false
+  # Cost to create new clan.
+  create: 5000
+
+# Cost
+#
+# Nothing is required.
+# If not found cost.type.player, all (will return 0 (free))
+#
+cost:
+  rename:
+    player: 50000
+    all: 45000
+
+    # Another amount depending on next clan level.
+    1:
+      player: 25000
+      all: 20000
+    2:
+      player: 24000
+      all: 24000
+  member:
+    player: 25000
+    all: 20000
+
+    # Another amount depending on amount of max members.
+    1:
+      player: 25000
+      all: 20000
+    2:
+      player: 24000
+      all: 24000
+  upgrade:
+    player: 5000
+    all: 4500
+
+    # Another amount depending on next clan level.
+    1:
+      player: 5000
+      all: 4500
+    2:
+      player: 5000
+      all: 4500
+
+# Top
+top:
+  name: '&cNone'
+  value: '&cNone'
+  # Recommended to make this as high as you are willing to go, to not fetch data all the time.
+  # Map is updated at server startup.
+  # Update top map every x amount of seconds. (300 = 5 minutes)
+  update: 300
+
+# Black list for clan names/prefix
+blacklist:
+  - test
+
+# Disable plugin completely in specific worlds
+#worlds:
+#  - world
+
+# Stats session
+# Block getting kills by killing the same player. (remove section to disable)
+session:
+
+  # Amount of times a player must kill another player to get in the kill session.
+  amount: 4
+
+  # Amount of time (in seconds) a player is in the kill session.
+  time: 150

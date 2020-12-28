@@ -1,0 +1,60 @@
+#                                         #
+#                PvPClans                 #
+#                   by                    #
+#                MathiasMC                #
+#  Any ideas for the plugin or need help? #
+#           contact me on spigot          #
+#                                         #
+
+title: '&8Clan > ( &cUpgrades &8)'
+
+size: 45
+
+show:
+  # Amount of levels to show
+  amount: 3
+  material: '160:1'
+  name: '&8( &cThis is a secret &8)'
+  lore:
+    - ' '
+    - '&8> &7You cannot see this yet.'
+    - ' '
+    - '&8> &7Needed Xp &e{clan_xp_need}'
+    - ' '
+
+material: '160:15'
+name: '&8( &cNo level here &8)'
+lore:
+  - ' '
+  - '&8> &7Wait, until server admin create more levels.'
+  - ' '
+
+# List of slots to fill in levels in this order.
+list:
+  - 28
+  - 19
+  - 10
+  - 11
+  - 12
+  - 21
+  - 30
+  - 31
+  - 32
+  - 23
+  - 14
+  - 15
+  - 16
+  - 25
+  - 34
+
+items:
+  '44':
+    material: '262'
+    name: '&8( &cBack &8)'
+    lore:
+      - ' '
+      - '&8> &7Go back to clans menu.'
+      - ' '
+    left:
+      perform:
+        - '[gui] clan'

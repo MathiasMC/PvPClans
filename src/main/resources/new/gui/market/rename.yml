@@ -1,0 +1,53 @@
+#                                         #
+#                PvPClans                 #
+#                   by                    #
+#                MathiasMC                #
+#  Any ideas for the plugin or need help? #
+#           contact me on spigot          #
+#                                         #
+
+title: '&8Clan > ( &cRename &8)'
+
+size: 27
+
+items:
+  '11':
+    material: 'sunflower'
+    name: '&8( &cOwn Coins &8)'
+    lore:
+      - ' '
+      - '&8> &7Coins &e{coins}'
+      - ' '
+      - '&8> &7Cost &e{cost_rename}$'
+      - ' '
+      - '&8> &aClick to select.'
+    left:
+      perform:
+        - '[coins] own'
+        - '[confirm] [close]'
+  '15':
+    material: 'sunflower'
+    name: '&8( &cClan Coins &8)'
+    lore:
+      - ' '
+      - '&8> &7Split cost between all members'
+      - ' '
+      - '&8> &7Available Coins &e{clan_coins}'
+      - ' '
+      - '&8> &7Cost &e{cost_rename_all}$'
+      - ' '
+      - '&8> &aClick to select.'
+    left:
+      perform:
+        - '[coins] clan'
+        - '[confirm] [close]'
+  '26':
+    material: 'arrow'
+    name: '&8( &cBack &8)'
+    lore:
+      - ' '
+      - '&8> &7Go back to clans menu.'
+      - ' '
+    left:
+      perform:
+        - '[gui] market'

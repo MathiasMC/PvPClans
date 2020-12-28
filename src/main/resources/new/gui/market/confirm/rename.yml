@@ -1,0 +1,47 @@
+#                                         #
+#                PvPClans                 #
+#                   by                    #
+#                MathiasMC                #
+#  Any ideas for the plugin or need help? #
+#           contact me on spigot          #
+#                                         #
+
+title: '&8Clan > ( &cRename &8)'
+
+size: 27
+
+items:
+  '11':
+    material: 'lime_stained_glass_pane'
+    name: '&a&lACCEPT'
+    lore:
+      - ' '
+      - '&8> &7Change from &c{clan} &7to &c{rename}'
+      - ' '
+      - '&8> &7Left click to confirm.'
+      - ' '
+    left:
+      perform:
+        - '[confirm] [gui] market'
+  '15':
+    material: 'red_stained_glass_pane'
+    name: '&c&lDENY'
+    lore:
+      - ' '
+      - '&8> &7Click to deny the operation.'
+      - ' '
+    left:
+      perform:
+        - '[cancel] rename'
+        - '[gui] market_rename'
+  '26':
+    material: 'arrow'
+    name: '&cBack'
+    lore:
+      - ' '
+      - '&8> &7Go back to rename menu.'
+      - ' '
+    left:
+      perform:
+        - '[cancel] rename'
+        - '[gui] market_rename'

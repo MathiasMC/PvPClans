@@ -1,0 +1,91 @@
+main: me.MathiasMC.PvPClans.PvPClans
+version: ${project.version}
+name: ${project.name}
+author: MathiasMC
+description: ${project.description}
+softdepend: [PlaceholderAPI]
+api-version: 1.13
+commands:
+  pvpclans:
+    description: "PvPClans main command"
+    aliases: ["clan", "clans", "pvpclan"]
+permissions:
+  pvpclans.*:
+    description: "Access to use all commands"
+    children:
+      pvpclans.player.*: true
+      pvpclans.admin.*: true
+  pvpclans.player.*:
+    description: "Access to use all player commands"
+    children:
+      pvpclans.player.clan: true
+      pvpclans.player.help: true
+      pvpclans.player.create: true
+      pvpclans.player.invite: true
+      pvpclans.player.accept: true
+      pvpclans.player.leave: true
+      pvpclans.player.deny: true
+      pvpclans.player.kick: true
+      pvpclans.player.delete: true
+      pvpclans.player.chat: true
+  pvpclans.admin.*:
+    description: "Access to use all admin commands"
+    children:
+      pvpclans.admin.help: true
+      pvpclans.admin.reload: true
+      pvpclans.admin.message: true
+      pvpclans.admin.broadcast: true
+      pvpclans.admin.coins: true
+      pvpclans.admin.xp: true
+      pvpclans.admin.perk: true
+  pvpclans.player.clan:
+    default: "op"
+    description: "Access to use open gui"
+  pvpclans.player.help:
+    default: "op"
+    description: "Access to use player help"
+  pvpclans.player.create:
+    default: "op"
+    description: "Access to use player create"
+  pvpclans.player.invite:
+    default: "op"
+    description: "Access to use player invite"
+  pvpclans.player.accept:
+    default: "op"
+    description: "Access to use player accept"
+  pvpclans.player.leave:
+    default: "op"
+    description: "Access to use player leave"
+  pvpclans.player.deny:
+    default: "op"
+    description: "Access to use player deny"
+  pvpclans.player.kick:
+    default: "op"
+    description: "Access to use player kick"
+  pvpclans.player.delete:
+    default: "op"
+    description: "Access to use player delete"
+  pvpclans.player.chat:
+    default: "op"
+    description: "Access to use player chat"
+  pvpclans.admin.help:
+    default: "op"
+    description: "Access to use admin help"
+  pvpclans.admin.reload:
+    default: "op"
+    description: "Access to use admin reload"
+  pvpclans.admin.message:
+    default: "op"
+    description: "Access to use admin message"
+  pvpclans.admin.broadcast:
+    default: "op"
+    description: "Access to use admin broadcast"
+  pvpclans.admin.coins:
+    default: "op"
+    description: "Access to use admin coins"
+  pvpclans.admin.xp:
+    default: "op"
+    description: "Access to use admin xp"
+  pvpclans.admin.perk:
+    default: "op"
+    description: "Access to use admin perk"

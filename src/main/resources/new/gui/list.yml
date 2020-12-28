@@ -1,0 +1,74 @@
+#                                         #
+#                PvPClans                 #
+#                   by                    #
+#                MathiasMC                #
+#  Any ideas for the plugin or need help? #
+#           contact me on spigot          #
+#                                         #
+
+title: '&8Clan > ( &cList &8)'
+
+size: 45
+
+# List of slots to fill in clans in this order.
+list:
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 28
+  - 29
+  - 30
+  - 31
+  - 32
+  - 33
+  - 34
+
+name: '&8( &c{clan} &8)'
+lore:
+  - ' '
+  - '&8> &7ID &e{id}'
+  - ' '
+  - '&8> &7Kills &e{clan_kills}'
+  - '&8> &7Deaths &e{clan_deaths}'
+  - '&8> &7Available Coins &e{clan_coins}'
+  - '&8> &7Xp &e{clan_xp}'
+  - ' '
+  - '&8> &7Level &e{clan_level}'
+  - ' '
+
+items:
+  '40':
+    material: 'arrow'
+    name: '&8( &cBack &8)'
+    lore:
+      - ' '
+      - '&8> &7Go back to clans menu.'
+      - ' '
+    left:
+      perform:
+        - '[gui] clan'
+  '36':
+    material: 'arrow'
+    name: '&8( &cPrevious Page &8)'
+    lore: []
+    left:
+      perform:
+        - '[page] back'
+  '44':
+    material: 'arrow'
+    name: '&8( &cNext Page &8)'
+    lore: []
+    left:
+      perform:
+        - '[page] next'

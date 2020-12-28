@@ -1,0 +1,51 @@
+#                                         #
+#                PvPClans                 #
+#                   by                    #
+#                MathiasMC                #
+#  Any ideas for the plugin or need help? #
+#           contact me on spigot          #
+#                                         #
+
+title: '&8Clan > ( &cPerks &8)'
+
+size: 45
+
+# List of slots to fill in perks in this order.
+list:
+  - 10
+  - 12
+  - 14
+  - 16
+  - 20
+  - 22
+  - 24
+  - 28
+  - 30
+  - 32
+  - 34
+
+items:
+  '40':
+    material: '262'
+    name: '&8( &cBack &8)'
+    lore:
+      - ' '
+      - '&8> &7Go back to clans menu.'
+      - ' '
+    left:
+      perform:
+        - '[gui] clan'
+  '36':
+    material: '262'
+    name: '&8( &cPrevious Page &8)'
+    lore: []
+    left:
+      perform:
+        - '[page] back'
+  '44':
+    material: '262'
+    name: '&8( &cNext Page &8)'
+    lore: [ ]
+    left:
+      perform:
+        - '[page] next'

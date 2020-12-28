@@ -1,0 +1,61 @@
+#                                         #
+#                PvPClans                 #
+#                   by                    #
+#                MathiasMC                #
+#  Any ideas for the plugin or need help? #
+#           contact me on spigot          #
+#                                         #
+
+title: '&8Clan > ( &cUpgrade &8)'
+
+size: 27
+
+items:
+  '11':
+    material: '175'
+    name: '&8( &cOwn Coins &8)'
+    lore:
+      - ' '
+      - '&8> &7Coins &e{coins}'
+      - ' '
+      - '&8> &7Cost &e{cost_upgrade}$'
+      - ' '
+      - '&8> &7Xp &e{clan_xp}'
+      - ' '
+      - '&8> &7Needed Xp &e{clan_xp_need}'
+      - ' '
+      - '&8> &aClick to select.'
+    left:
+      perform:
+        - '[coins] own'
+        - '[confirm]'
+  '15':
+    material: '175'
+    name: '&8( &cClan Coins &8)'
+    lore:
+      - ' '
+      - '&8> &7Split cost between all members'
+      - ' '
+      - '&8> &7Available Coins &e{clan_coins}'
+      - ' '
+      - '&8> &7Cost &e{cost_upgrade_all}$'
+      - ' '
+      - '&8> &7Xp &e{clan_xp}'
+      - ' '
+      - '&8> &7Needed Xp &e{clan_xp_need}'
+      - ' '
+      - '&8> &aClick to select.'
+    left:
+      perform:
+        - '[coins] clan'
+        - '[confirm]'
+  '26':
+    material: '262'
+    name: '&8( &cBack &8)'
+    lore:
+      - ' '
+      - '&8> &7Go back to clans menu.'
+      - ' '
+    left:
+      perform:
+        - '[gui] market'
